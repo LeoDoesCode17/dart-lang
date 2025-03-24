@@ -5,6 +5,7 @@ void main(){
   assert(6 / 4 == 1.5);
   assert(6 ~/ 4 == 1); //result in integer
   assert(5 % 3 == 2);
+  assert(-(10-11) == 1);
 
   //preincrement and decrement 
   var a = 0;
