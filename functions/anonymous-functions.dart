@@ -8,8 +8,18 @@ void main() {
   printUppercaseList(['leo', 'bowo', 'ali']);
 }
 
+//using lambda expression : (str) => str.toUpperCase()
+// void printUppercaseList(List<String> strList) {
+//   var uppercaseList = strList.map((str) => str.toUpperCase()).toList();
+//   print('Original list\t\t: $strList');
+//   print('Uppercase list\t\t: $uppercaseList');
+// }
+
+//full anonymous function
 void printUppercaseList(List<String> strList) {
-  var uppercaseList = strList.map((str) => str.toUpperCase()).toList();
+  var uppercaseList = strList.map((str) {
+    return str.toUpperCase();
+  }).toList();
   print('Original list\t\t: $strList');
   print('Uppercase list\t\t: $uppercaseList');
 }
