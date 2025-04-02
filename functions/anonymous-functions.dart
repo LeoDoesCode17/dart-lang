@@ -1,6 +1,9 @@
 /*
 Anonymous functions are functions that are created without name
 Functions without name are also called lambdas or closures
+Lambda function is same as anonymous function
+Lambda function can be in arrow form and multiple statement form (without arrow)
+All arrow functions is lambda function but not all lambda function is arrow function
 */
 void main() {
   //these functions perform anonymous function
@@ -8,6 +11,7 @@ void main() {
   printUppercaseList(['leo', 'bowo', 'ali']);
 }
 
+//This is lambda function in arrow form
 //using lambda expression : (str) => str.toUpperCase()
 // void printUppercaseList(List<String> strList) {
 //   var uppercaseList = strList.map((str) => str.toUpperCase()).toList();
@@ -15,6 +19,7 @@ void main() {
 //   print('Uppercase list\t\t: $uppercaseList');
 // }
 
+//this is lambda function without arrow
 //full anonymous function
 void printUppercaseList(List<String> strList) {
   var uppercaseList = strList.map((str) {
