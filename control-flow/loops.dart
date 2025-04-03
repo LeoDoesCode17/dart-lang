@@ -1,6 +1,10 @@
 /**
  * Types of loop : for loop, iterable(for in and for each), while loop, and do while loop
  * In those loops, we can control behavior of looping using keyword : continue and break
+ * Tips for iterable method (.map, .where):
+📌 When to Use .map() vs .where()
+✅ Use .map() → When you want to transform every element in the list.
+✅ Use .where() → When you want to filter elements based on a condition.
  */
 void main() {
   // performForLoop();
