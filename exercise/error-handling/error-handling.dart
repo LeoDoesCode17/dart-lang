@@ -1,8 +1,6 @@
 import 'dart:math';
 
-void main() {
-  customerActivity();
-}
+void main() {}
 
 //problem 1 : Basic Exception
 //use : var res = safeDivide(10, 0);
