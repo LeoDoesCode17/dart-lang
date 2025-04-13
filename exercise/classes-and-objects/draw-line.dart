@@ -2,7 +2,7 @@ import 'dart:math';
 
 void main() {
   Line line = Line(Point(10, 10), Point(17, 16));
-  List<Point> points = line.drawUsingDDA();
+  List<Point> points = line.drawUsingBresenham();
   points.forEach((point) => print(point.toString()));
   print(points.length);
   // line.info();
@@ -82,6 +82,59 @@ class Line {
       res.add(Point(x.round(), y.round()));
       x += incX;
       y += incY;
+    }
+
+    return res;
+  }
+
+  //this works only for the first octant
+  // List<Point> drawUsingBresenham() {
+  //   int dx = end.x - begin.x;
+  //   int dy = end.y - begin.y;
+  //   int p = 2 * dy - dx;
+  //   int x = begin.x, y = begin.y;
+  //   List<Point> res = [begin];
+  //   while (!(res.last == end)) {
+  //     x++;
+  //     if (p >= 0) {
+  //       y++;
+  //       p -= (2 * dx); // p = p - 2*dx = p - 2*dx
+  //     }
+  //     p += 2 * dy; // p = p + 2*dy
+  //     res.add(Point(x, y));
+  //   }
+  //   return res;
+  // }
+
+  //works for all octants, any slope direction (vertical, horizontal, and diagonal)
+  List<Point> drawUsingBresenham() {
+    int x1 = begin.x;
+    int y1 = begin.y;
+    int x2 = end.x;
+    int y2 = end.y;
+
+    List<Point> res = [];
+
+    int dx = (x2 - x1).abs();
+    int dy = (y2 - y1).abs();
+
+    int sx = x1 < x2 ? 1 : -1;
+    int sy = y1 < y2 ? 1 : -1;
+
+    int err = dx - dy;
+
+    while (true) {
+      res.add(Point(x1, y1));
+      if (x1 == x2 && y1 == y2) break;
+      int e2 = 2 * err;
+      if (e2 > -dy) {
+        err -= dy;
+        x1 += sx;
+      }
+      if (e2 < dx) {
+        err += dx;
+        y1 += sy;
+      }
     }
 
     return res;
